@@ -2,6 +2,8 @@
 wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
 sudo dpkg -i chrome-remote-desktop_current_amd64.deb
 sudo apt-get install -f -y
+rm chrome-remote-desktop_current_amd64.deb
+
 cat <<EOF > ~/.chrome-remote-desktop-session
 exec /etc/X11/Xsession 'env GNOME_SHELL_SESSION_MODE=ubuntu /usr/bin/gnome-session --systemd --session=ubuntu'
 EOF
