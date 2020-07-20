@@ -9,6 +9,21 @@ exec /etc/X11/Xsession 'env GNOME_SHELL_SESSION_MODE=ubuntu /usr/bin/gnome-sessi
 EOF
 
 sudo usermod -a -G chrome-remote-desktop $USER
+sudo systemctl disable chrome-remote-desktop
+
+cat <<EOF > ~/.config/autostart/chrome-remote-desktop.desktop
+[Desktop Entry]
+Type=Application
+Exec=/opt/google/chrome-remote-desktop/chrome-remote-desktop --start
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_US]=Chrome Remote Desktop
+Name=Chrome Remote Desktop
+Comment[en_US]=Autostart Chrome Remote Desktop After Login to prevent service from preventing login
+Comment=Autostart Chrome Remote Desktop After Login to prevent service from preventing login
+EOF
+
 
 sudo cat <<EOF > /opt/google/chrome-remote-desktop/chrome-remote-desktop
 #!/usr/bin/python3
