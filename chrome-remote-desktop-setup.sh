@@ -10,7 +10,7 @@ EOF
 
 sudo usermod -a -G chrome-remote-desktop $USER
 sudo systemctl disable chrome-remote-desktop
-
+mkdir -p ~/.config/chrome-remote-desktop
 cat <<EOF > ~/.config/autostart/chrome-remote-desktop.desktop
 [Desktop Entry]
 Type=Application
